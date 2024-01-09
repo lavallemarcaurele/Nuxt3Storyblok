@@ -19,12 +19,4 @@ export default defineNuxtConfig({
   storyblok: {
     accessToken: process.env.STORYBLOK_ACCESS_TOKEN
   },
-  components: {
-    dirs: [
-      {
-        path: '~/components/storyblok',
-        global: true,
-      }
-    ]
-  },
 })
