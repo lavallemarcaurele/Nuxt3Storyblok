@@ -10,8 +10,15 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.10.4",
     "nuxt": "^3.9.0",
     "vue": "^3.4.6",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@nuxt/image": "^1.1.0",
+    "@storyblok/nuxt": "^6.0.0",
+    "@vee-validate/nuxt": "^4.12.4",
+    "nuxt-icons": "^3.2.1"
   }
 }
