@@ -4,19 +4,29 @@
       <NuxtLink to="/">
         <h1 class="text-[#50b0ae] text-3xl font-bold">Storyblok Nuxt</h1>
       </NuxtLink>
-      <nav>
+      <nav v-if="headerMenu">
         <ul class="flex space-x-8 text-lg font-bold">
-          <li>
-            <NuxtLink to="/blog" class="hover:text-[#50b0ae]">Blog</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/about" class="hover:text-[#50b0ae]">About</NuxtLink>
+          <li v-for="blok in headerMenu" :key="blok._uid">
+            <NuxtLink :to="`/${blok.link.story.url}`" class="hover:text-[#50b0ae]">
+              {{ blok.link.story.name }}
+            </NuxtLink>
           </li>
         </ul>
       </nav>
     </div>
   </header>
 </template>
+
+<script setup>
+const storyblokApi = useStoryblokApi()
+const { data } = await storyblokApi.get('cdn/stories/config', {
+  version: 'draft',
+  resolve_links: 'url',
+})
+ 
+const headerMenu = ref(null)
+headerMenu.value = data.story.content.header_menu
+</script>
 
 <style scoped>
 nav a.router-link-active {
