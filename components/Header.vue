@@ -7,8 +7,8 @@
       <nav v-if="headerMenu">
         <ul class="flex space-x-8 text-lg font-bold">
           <li v-for="blok in headerMenu" :key="blok._uid">
-            <NuxtLink :to="`/${blok.link.story.url}`" class="hover:text-[#50b0ae]">
-              {{ blok.link.story.name }}
+            <NuxtLink :to="`/${blok.link.story?.url}`" class="hover:text-[#50b0ae]">
+              {{ blok.link.story?.name }}
             </NuxtLink>
           </li>
         </ul>
